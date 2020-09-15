@@ -1,0 +1,61 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    {# BOOTSTRAP区域 #}
+    <link rel="stylesheet" type="text/css" href="{% static "boot/bootstrap.min.css" %}">
+    {#<link rel="stylesheet" type="text/css" href="{% static "boot/reset.css" %}">#}
+    <script src="{% static "boot/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "boot/bootstrap.bundle.min.js" %}"></script>
+    {# BOOTSTRAP区域 #}
+
+    {# CSS区域 #}
+    {% block extrastyle %}
+
+    {% endblock %}
+    {# CSS区域 #}
+
+
+    {# 头部 #}
+    {% block extrahead %}
+
+    {% endblock %}
+    {# 头部 #}
+
+
+    {% block responsive %}
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="{# display: block; #}width=device-width, initial-scale=1.0{# , maximum-scale=1.0 #}">
+    {% endblock %}
+    {% block blockbots %}
+        <meta name="robots" content="NONE">
+    {% endblock %}
+</head>
+{% load i18n %}
+
+<body>
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+</body>
+
+{% block extrascript %}
+
+{% endblock %}
+</html>

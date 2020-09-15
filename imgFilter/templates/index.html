@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrastyle %}
+    <style>
+        body {
+            background-color: #4e555b;
+        }
+    a{
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    </style>
+    {#    <link rel="stylesheet" type="text/css" href="{% static "css/curd.css" %}">#}
+{% endblock %}
+
+{% block title %}
+    imgFilter
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container align-items-center">
+        {% if request.user.is_authenticated %}
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <ul class="nav justify-content-around">
+                        <li class="nav-item">
+                            <a class="nav-link active">{{ h }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">{{ w }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <img src="/static/data/{{ name }}" class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="btn-group d-flex justify-content-around" role="group" aria-label="Basic example">
+                        <a href="/del?img={{ name }}" class="btn btn-warning btn-lg" tabindex="-1"
+                           role="button"
+                        >DEL</a>
+                        <a href="/save" class="btn btn-info btn-lg" tabindex="-1" role="button"
+                        >不暴露</a>
+                        <a href="/move?img={{ name }}" class="btn btn-primary btn-lg" tabindex="-1" role="button"
+                        >暴露</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-4 offset-8">
+                    <form actioin="{% url 'filter:index' %}" method="post">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing">Username</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing" name="username">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing">Pass word</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing" name="password">
+                        </div>
+                        <div class="input-group">
+                            <button type="submit" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+{% block footer %}
+{% endblock %}
+{% block extrascript %}
+    <script src="{% static 'boot/jquery.cookie.js' %}"></script>
+{% endblock %}
