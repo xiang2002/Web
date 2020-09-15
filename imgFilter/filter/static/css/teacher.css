@@ -1,0 +1,13 @@
+body{
+    background-color: #b8daff;
+}
+.head{
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+.container{
+    margin-top: 4%;
+}
+.table td,.table th, .table thead th{
+    vertical-align: middle;
+}

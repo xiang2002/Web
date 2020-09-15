@@ -1,0 +1,1 @@
+var csrftoken = $.cookie('csrftoken');
