@@ -41,7 +41,7 @@ class BoatAPI(MethodView):
 boat_view = BoatAPI.as_view('boat_api')
 app.add_url_rule('/boats/', defaults={'boat_id': None},
                  view_func=boat_view, methods=['GET',])
-# app.add_url_rule('/users/', view_func=user_view, methods=['POST',])
+app.add_url_rule('/boats/', view_func=boat_view, methods=['POST',])
 app.add_url_rule('/boats/<int:boat_id>', view_func=boat_view,
                  methods=['GET', 'PUT', 'DELETE'])
 if __name__ == '__main__':
